@@ -1,0 +1,42 @@
+.top-fix {
+  display: flex;
+  padding: 0 20px;
+  width: 100%;
+  height: 64px;
+  background-color: #d43c33;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+.topsvg {
+  width: 142px;
+  height: 25px;
+  overflow: hidden;
+}
+.topfr span {
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid white;
+  border-radius: 37.5%/100%;
+  cursor: pointer;
+}
+.am-tabs-default-bar-underline {
+  border-color: #d43c33;
+}
+
+.linkto {
+  color: hsl(0, 0%, 40%);
+}
+
+.am-tabs-default-bar-tab-active .linkto {
+  color: #d43c33;
+}
+
+.am-tabs-content-wrap-animated {
+  background-color: #fff;
+}

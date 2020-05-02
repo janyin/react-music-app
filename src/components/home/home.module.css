@@ -1,0 +1,31 @@
+.content {
+  background-color: #fff;
+}
+.remd {
+  display: block;
+  position: relative;
+  padding-left: 9px;
+  margin-bottom: 14px;
+  font-size: 17px;
+  font-weight: 400;
+  height: 20px;
+  line-height: 20px;
+}
+.remd:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -9px;
+  width: 2px;
+  height: 16px;
+  background-color: #d33a31;
+}
+.list:after {
+  display: block;
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  content: ".";
+}
