@@ -1,17 +1,12 @@
-import React, { Component } from "react";
-import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import { Toast } from "antd-mobile";
+import React, { Component, lazy, Suspense } from "react";
+import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import { Toast, ActivityIndicator } from "antd-mobile";
 import Layout from "page/layout/index";
-import PlayList from "page/playlist/index";
-import Player from "components/player/index";
 import { connect } from "react-redux";
-import {
-  getHomeData,
-  getRankData,
-  getHotWord,
-  setPlayerStatus,
-  setPlayerTime,
-} from "store/action";
+import { getHomeData, getRankData, getHotWord } from "store/action";
+
+const Player = lazy(() => import("page/player/index"));
+const PlayList = lazy(() => import("page/playlist/index"));
 
 class RouteConfig extends Component {
   async componentDidMount() {
@@ -29,47 +24,23 @@ class RouteConfig extends Component {
   }
 
   render() {
-    const {
-      curMusic,
-      playerStatus,
-      setPlayerStatus,
-      setPlayerTime,
-      percent,
-    } = this.props;
-
     return (
       <HashRouter>
-        <Switch>
-          <Route exact path="/" component={Layout} />
-          <Route path="/playlist" component={PlayList} />
-          <Redirect to="/" />
-        </Switch>
-        {curMusic.id && (
-          <Player
-            {...curMusic}
-            percent={percent}
-            playerStatus={playerStatus}
-            setPlayerStatus={setPlayerStatus}
-            setPlayerTime={setPlayerTime}
-          />
-        )}
+        <Suspense fallback={<ActivityIndicator toast text="loading" />}>
+          <Switch>
+            <Route exact path="/" component={Layout} />
+            <Route path="/playlist" component={PlayList} />
+            <Route path="/player" component={Player} />
+            <Redirect to="/" />
+          </Switch>
+        </Suspense>
       </HashRouter>
     );
   }
 }
 
-export default connect(
-  (state) => ({
-    curMusic: state.curMusic,
-    playerTime: state.playerTime,
-    playerStatus: state.playerStatus,
-    percent: state.percent,
-  }),
-  {
-    getHomeData,
-    getRankData,
-    getHotWord,
-    setPlayerStatus,
-    setPlayerTime,
-  }
-)(RouteConfig);
+export default connect(null, {
+  getHomeData,
+  getRankData,
+  getHotWord,
+})(RouteConfig);

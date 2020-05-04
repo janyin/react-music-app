@@ -1,6 +1,5 @@
 import * as API from "api/config";
 import * as PARSE from "utils/apiparse";
-import lyricParser from "utils/ircparse";
 
 export const getHomeData = () => {
   return async (dispatch) => {
@@ -103,8 +102,7 @@ export const setCurMusic = (music) => {
     if (check.data.success) {
       let musicUrlData = await API.getMusicUrl(id);
       let musicDetailData = await API.getMusicDetail(id);
-      let musicLycicData = await API.getLrc(id);
-      const { lyric } = lyricParser(musicLycicData.data);
+      let commentData = await API.getComment(id);
 
       let result = {
         id,
@@ -112,7 +110,7 @@ export const setCurMusic = (music) => {
         imgUrl: musicDetailData.data.songs[0].al.picUrl,
         singer: artists,
         song: title,
-        lyric: lyric,
+        comment: PARSE.comment(commentData.data.hotComments),
       };
 
       if (!result.musicUrl) {
@@ -134,12 +132,9 @@ export const setCurMusic = (music) => {
 };
 
 export const setPlayerTime = (time) => {
-  const { currentTime, duration } = time;
-  const percent = Number(((currentTime / duration) * 100).toFixed(2));
   return {
     type: "SETPLAYERTIME",
     time,
-    percent,
   };
 };
 

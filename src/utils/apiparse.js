@@ -119,3 +119,19 @@ export const search = (response) => {
   });
   return searchResultList;
 };
+
+export const comment = (data) => {
+  return data.map((item) => ({
+    content: item.content,
+    likedCount: item.likedCount,
+    username: item.user.nickname,
+    avatarUrl: item.user.avatarUrl,
+    time: parseCommentDate(item.time),
+  }));
+};
+
+function parseCommentDate(time) {
+  let date = new Date(Number(time));
+  let year = date.getFullYear() === 2020 ? "" : `${date.getFullYear()}年`;
+  return `${year}${date.getMonth() + 1}月${date.getDate()}日`;
+}

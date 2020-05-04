@@ -8,9 +8,7 @@ let defaultState = {
   curWord: "", //当前搜索输入值
   curMusic: {}, //当前播放音乐信息
   isAvailable: true, //音乐能否播放？
-  playerTime: 0, //当前播放时间
   playerStatus: false, //播放状态
-  percent: 0, //播放百分比
 };
 
 export const musicData = (state = defaultState, action) => {
@@ -67,13 +65,6 @@ export const musicData = (state = defaultState, action) => {
       return {
         ...state,
         curMusic: action.result,
-      };
-    }
-    case "SETPLAYERTIME": {
-      return {
-        ...state,
-        playerTime: action.time,
-        percent: action.percent,
       };
     }
     case "SETPLAYERSTATUS": {

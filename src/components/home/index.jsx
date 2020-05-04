@@ -22,7 +22,7 @@ class Home extends Component {
         console.log(error);
       }
     }
-    history.push({ pathname: "/playlist", query: { id } });
+    history.push("/playlist");
   };
 
   render() {

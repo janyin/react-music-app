@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import PropsTypes from "prop-types";
 import styles from "./song.module.css";
-import { setCurMusic, setPlayerStatus } from "store/action";
-import { Toast } from "antd-mobile";
-import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class Song extends Component {
   static propsTypes = {
@@ -14,19 +12,9 @@ class Song extends Component {
     rank: PropsTypes.string,
   };
 
-  gotoPlayer = async () => {
-    try {
-      const { data, setCurMusic, setPlayerStatus } = this.props;
-      Toast.loading("正在加载数据...", 100);
-      // eslint-disable-next-line
-      let res = await setCurMusic(data);
-      setPlayerStatus(true);
-      Toast.hide();
-    } catch (error) {
-      Toast.hide();
-      Toast.offline("网络错误");
-      console.log(error);
-    }
+  gotoPlayer = () => {
+    const { data, history } = this.props;
+    history.push({ pathname: "/player", query: data });
   };
 
   render() {
@@ -66,4 +54,4 @@ class Song extends Component {
   }
 }
 
-export default connect((state) => ({}), { setCurMusic, setPlayerStatus })(Song);
+export default withRouter(Song);
