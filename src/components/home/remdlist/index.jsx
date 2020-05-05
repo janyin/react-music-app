@@ -1,26 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import styles from "./remdlist.module.css";
-import PropsType from "prop-types";
+import PropTypes from "prop-types";
 
-export default class RemdList extends Component {
-  static propsType = {
-    id: PropsType.number,
-    play: PropsType.string,
-    name: PropsType.string,
-    imgUrl: PropsType.string,
-  };
+const RemdList = (props) => {
+  const { id, imgUrl, play, name, gotoPlayList } = props;
 
-  render() {
-    const { id, imgUrl, play, name, gotoPlayList } = this.props;
+  return (
+    <span onClick={() => gotoPlayList(id)} className={styles.remd_li}>
+      <div className={styles.list_img}>
+        <img src={imgUrl} alt="pic" />
+        <span>{play}</span>
+      </div>
+      <p className={styles.remd_text}>{name}</p>
+    </span>
+  );
+};
 
-    return (
-      <span onClick={() => gotoPlayList(id)} className={styles.remd_li}>
-        <div className={styles.list_img}>
-          <img src={imgUrl} alt="pic" />
-          <span>{play}</span>
-        </div>
-        <p className={styles.remd_text}>{name}</p>
-      </span>
-    );
-  }
-}
+RemdList.propTypes = {
+  id: PropTypes.number.isRequired,
+  play: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+};
+
+export default RemdList;

@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import PropsTypes from "prop-types";
+import PropTypes from "prop-types";
 import styles from "./song.module.css";
 import { withRouter } from "react-router-dom";
 
 class Song extends Component {
-  static propsTypes = {
-    title: PropsTypes.string.isRequired,
-    alias: PropsTypes.string.isRequired,
-    artists: PropsTypes.string.isRequired,
-    album: PropsTypes.string.isRequired,
-    rank: PropsTypes.string,
+  static propTypes = {
+    data: PropTypes.object.isRequired,
   };
 
   gotoPlayer = () => {

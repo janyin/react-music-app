@@ -15,7 +15,7 @@ class Search extends Component {
         setCurWord(val);
       }
       // eslint-disable-next-line
-      let res = await getSearchSong(val.trim());
+      let res = await getSearchSong(val);
       Toast.hide();
     } catch (error) {
       Toast.hide();
@@ -24,22 +24,18 @@ class Search extends Component {
     }
   };
 
-  clearSearch = () => {
-    const { setCurWord, clearSearchSong } = this.props;
-    setCurWord("");
-    clearSearchSong();
-  };
-
   handleChange = (val) => {
+    const { clearSearchSong, setCurWord } = this.props;
+
     if (!val.trim()) {
-      this.clearSearch();
+      clearSearchSong();
     } else {
-      this.props.setCurWord(val);
+      setCurWord(val);
     }
   };
 
   render() {
-    const { hotWord, searchResult, curWord } = this.props;
+    const { hotWord, searchResult, curWord, clearSearchSong } = this.props;
 
     return (
       <div>
@@ -49,7 +45,7 @@ class Search extends Component {
             value={curWord}
             onSubmit={(val) => this.searchWord(val)}
             onChange={(val) => this.handleChange(val)}
-            onCancel={this.clearSearch}
+            onCancel={clearSearchSong}
           />
         </div>
         {!searchResult.length && (

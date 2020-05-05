@@ -4,12 +4,11 @@ import Song from "components/song/index";
 import { connect } from "react-redux";
 
 class PlayList extends React.Component {
-  goBack = () => {
-    this.props.history.goBack();
-  };
-
   render() {
-    const { imgUrl, name, tags, desc, music } = this.props.playList;
+    const {
+      playList: { imgUrl, name, tags, desc, music },
+      history: { goBack },
+    } = this.props;
 
     return (
       <div className={styles.playlistwrap}>
@@ -18,7 +17,7 @@ class PlayList extends React.Component {
             className={styles.list_head_bg}
             style={{ backgroundImage: `url(${imgUrl})` }}
           ></div>
-          <div className={styles.getBack} onClick={this.goBack}>
+          <div className={styles.getBack} onClick={goBack}>
             <h3>返回</h3>
           </div>
           <div className={styles.list_head_content}>

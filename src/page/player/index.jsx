@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./play.css";
-import Comment from "components/comment";
+import Comment from "components/comment/index";
 import { setCurMusic, setPlayerStatus } from "store/action";
 import { Toast } from "antd-mobile";
 import { connect } from "react-redux";
@@ -24,8 +24,14 @@ class Player extends Component {
         // eslint-disable-next-line
         let res = await setCurMusic(data);
         Toast.hide();
+        if (res === "DISABLEMUSIC") {
+          this.disableMusic();
+        } else {
+          setPlayerStatus(true);
+        }
+      } else {
+        setPlayerStatus(true);
       }
-      setPlayerStatus(true);
     } catch (error) {
       Toast.hide();
       Toast.offline("网络错误");
@@ -33,10 +39,11 @@ class Player extends Component {
     }
   }
 
-  componentWillUnmount() {
-    const { setPlayerStatus } = this.props;
-    setPlayerStatus(false);
-  }
+  disableMusic = () => {
+    Toast.fail("该音乐无法播放", 3, () => {
+      this.goBack();
+    });
+  };
 
   changeStatus = () => {
     const { setPlayerStatus, playerStatus } = this.props;
@@ -49,20 +56,24 @@ class Player extends Component {
   };
 
   goBack = () => {
-    this.props.history.goBack();
+    const { history, setPlayerStatus } = this.props;
+    setPlayerStatus(false);
+    history.goBack();
   };
 
   render() {
     const {
-      curMusic: { song, singer, imgUrl, musicUrl, comment },
+      curMusic: { title, artists, imgUrl, musicUrl, comment },
       playerStatus,
     } = this.props;
 
     return (
       <div>
-        <audio src={musicUrl} loop autoPlay ref={this.audio}>
-          你的浏览器暂时不支持H5播放
-        </audio>
+        {playerStatus && (
+          <audio src={musicUrl} loop autoPlay ref={this.audio}>
+            你的浏览器暂时不支持H5播放
+          </audio>
+        )}
         <div
           className="song_bg"
           style={{ backgroundImage: `url(${imgUrl})` }}
@@ -88,7 +99,7 @@ class Player extends Component {
           </div>
           <div className="song_info">
             <p className="song_title">
-              {song} — {singer}
+              {title} — {artists}
             </p>
           </div>
           <div className="comment_wrap">

@@ -7,11 +7,10 @@ let defaultState = {
   playList: {}, //推荐歌单详情
   curWord: "", //当前搜索输入值
   curMusic: {}, //当前播放音乐信息
-  isAvailable: true, //音乐能否播放？
   playerStatus: false, //播放状态
 };
 
-export const musicData = (state = defaultState, action) => {
+export const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case "SETHOMEDATA": {
       return {
@@ -53,12 +52,7 @@ export const musicData = (state = defaultState, action) => {
       return {
         ...state,
         searchResult: [],
-      };
-    }
-    case "DISABLEMUSIC": {
-      return {
-        ...state,
-        isAvailable: false,
+        curWord: '',
       };
     }
     case "SETMUSICINFO": {

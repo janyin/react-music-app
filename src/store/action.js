@@ -69,7 +69,7 @@ export const getPlaylist = (id) => {
 export const getSearchSong = (word) => {
   return async (dispatch) => {
     try {
-      let response = await API.getSearchSong(word);
+      let response = await API.getSearchSong(word.trim());
       let result = PARSE.search(response);
 
       dispatch({
@@ -98,43 +98,35 @@ export const setCurWord = (word) => {
 export const setCurMusic = (music) => {
   return async (dispatch) => {
     const { id, artists, title } = music;
-    let check = await API.checkMusic(id);
+    const check = await API.checkMusic(id);
     if (check.data.success) {
-      let musicUrlData = await API.getMusicUrl(id);
-      let musicDetailData = await API.getMusicDetail(id);
-      let commentData = await API.getComment(id);
+      const resData = await Promise.all([
+        API.getMusicUrl(id),
+        API.getComment(id),
+        API.getMusicDetail(id),
+      ]);
 
-      let result = {
-        id,
-        musicUrl: musicUrlData.data.data[0].url,
-        imgUrl: musicDetailData.data.songs[0].al.picUrl,
-        singer: artists,
-        song: title,
-        comment: PARSE.comment(commentData.data.hotComments),
-      };
+      const musicUrl = resData[0].data.data[0].url;
+      const imgUrl = resData[2].data.songs[0].al.picUrl;
 
-      if (!result.musicUrl) {
-        dispatch({
-          type: "DISABLEMUSIC",
-        });
+      if (!musicUrl) {
+        return "DISABLEMUSIC";
       }
-
       dispatch({
         type: "SETMUSICINFO",
-        result,
+        result: {
+          id,
+          musicUrl,
+          imgUrl,
+          artists,
+          title,
+          comment: PARSE.comment(resData[1].data.hotComments),
+        },
       });
     } else {
-      dispatch({
-        type: "DISABLEMUSIC",
-      });
+      return "DISABLEMUSIC";
     }
-  };
-};
-
-export const setPlayerTime = (time) => {
-  return {
-    type: "SETPLAYERTIME",
-    time,
+    return "success";
   };
 };
 
