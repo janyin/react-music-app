@@ -19,7 +19,7 @@ const Footer = () => {
 };
 
 const gotoGithub = () => {
-  window.open("https://github.com/janyin/vue-wangyiyun-music", "_blank");
+  window.open("https://github.com/janyin/react-music-app", "_blank");
 };
 
 export default Footer;
