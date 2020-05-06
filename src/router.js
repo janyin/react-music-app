@@ -9,6 +9,9 @@ const Player = lazy(() => import("page/player/index"));
 const PlayList = lazy(() => import("page/playlist/index"));
 
 class RouteConfig extends Component {
+  /**
+   * 请求初始数据
+   */
   async componentDidMount() {
     Toast.loading("正在加载数据...", 100);
     try {

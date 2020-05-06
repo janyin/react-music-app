@@ -1,3 +1,7 @@
+/**
+ * axios请求的数据在这里，重新解析为组件所需的数据格式
+ * @param {Object} response 
+ */
 export const newSong = (response) =>
   response.data.result.map(({ song: { artists, album }, id, name }) => ({
     id,

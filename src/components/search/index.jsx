@@ -5,7 +5,15 @@ import Song from "components/song/index";
 import { connect } from "react-redux";
 import { getSearchSong, clearSearchSong, setCurWord } from "store/action";
 
+/**
+ * 搜索页面
+ */
 class Search extends Component {
+
+  /**
+   * 搜索歌曲处理
+   * @param {String} val 搜索词
+   */
   searchWord = async (val) => {
     const { getSearchSong, setCurWord, curWord } = this.props;
 
@@ -24,6 +32,10 @@ class Search extends Component {
     }
   };
 
+  /**
+   * 搜索框值改变处理
+   * @param {String} val 搜索框的值
+   */
   handleChange = (val) => {
     const { clearSearchSong, setCurWord } = this.props;
 

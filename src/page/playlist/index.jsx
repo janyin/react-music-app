@@ -4,6 +4,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import Song from "components/song/index";
 import { connect } from "react-redux";
 
+/**
+ * 歌单详情页面
+ */
 class PlayList extends React.Component {
   render() {
     const {

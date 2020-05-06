@@ -3,6 +3,9 @@ import Song from "components/song/index";
 import styles from "./rank.module.css";
 import { connect } from "react-redux";
 
+/**
+ * 排行榜页面
+ */
 const Rank = (props) => {
   const { rank } = props;
 
@@ -23,11 +26,10 @@ const Rank = (props) => {
   );
 };
 
+//获取当前时间
 const getTime = () => {
-  let d = new Date();
-  let month = d.getMonth();
-  let day = d.getDate();
-  return `${month + 1}月${day}日`;
+  const d = new Date();
+  return `${d.getMonth() + 1}月${d.getDate()}日`;
 };
 
 export default connect((state) => ({

@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./trending.module.css";
 import PropTypes from "prop-types";
 
+/**
+ * 搜索热词
+ */
 const Trending = (props) => {
   const { hotWord, searchWord } = props;
   return (

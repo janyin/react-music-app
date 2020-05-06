@@ -3,6 +3,9 @@ import styles from "./remdlist.module.css";
 import PropTypes from "prop-types";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
+/**
+ * 推荐歌单
+ */
 const RemdList = (props) => {
   const { id, imgUrl, play, name, gotoPlayList } = props;
 

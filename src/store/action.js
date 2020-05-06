@@ -1,6 +1,9 @@
 import * as API from "api/config";
 import * as PARSE from "utils/parse";
 
+/**
+ * 获取home页面数据
+ */
 export const getHomeData = () => {
   return async (dispatch) => {
     try {
@@ -20,6 +23,9 @@ export const getHomeData = () => {
   };
 };
 
+/**
+ * 获取rank页面数据
+ */
 export const getRankData = () => {
   return async (dispatch) => {
     try {
@@ -35,6 +41,9 @@ export const getRankData = () => {
   };
 };
 
+/**
+ * 获取搜索热词数据
+ */
 export const getHotWord = () => {
   return async (dispatch) => {
     try {
@@ -50,6 +59,10 @@ export const getHotWord = () => {
   };
 };
 
+/**
+ * 获取播放歌单详情数据
+ * @param {number} id 
+ */
 export const getPlaylist = (id) => {
   return async (dispatch) => {
     try {
@@ -65,6 +78,9 @@ export const getPlaylist = (id) => {
   };
 };
 
+/**
+ * 获取搜索结果
+ */
 export const getSearchSong = () => {
   return async (dispatch, getState) => {
     try {
@@ -81,12 +97,19 @@ export const getSearchSong = () => {
   };
 };
 
+/**
+ * 清空搜索结果
+ */
 export const clearSearchSong = () => {
   return {
     type: "CLEARSEARCH",
   };
 };
 
+/**
+ * 设置当前搜索框的值
+ * @param {String} word 搜索词
+ */
 export const setCurWord = (word) => {
   return {
     type: "SETCURWORD",
@@ -94,6 +117,10 @@ export const setCurWord = (word) => {
   };
 };
 
+/**
+ * 获取歌曲播放数据
+ * @param {Object} music 歌曲信息
+ */
 export const setCurMusic = (music) => {
   return async (dispatch) => {
     const { id, artists, title } = music;
@@ -129,6 +156,10 @@ export const setCurMusic = (music) => {
   };
 };
 
+/**
+ * 设置播放状态
+ * @param {Boolean}} status 播放状态
+ */
 export const setPlayerStatus = (status) => {
   return {
     type: "SETPLAYERSTATUS",

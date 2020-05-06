@@ -6,12 +6,16 @@ import { setCurMusic, setPlayerStatus } from "store/action";
 import { Toast } from "antd-mobile";
 import { connect } from "react-redux";
 
+/**
+ * 播放页面
+ */
 class Player extends Component {
   constructor(props) {
     super(props);
     this.audio = React.createRef();
   }
 
+  //获取歌曲播放数据
   async componentDidMount() {
     try {
       const {
@@ -40,12 +44,14 @@ class Player extends Component {
     }
   }
 
+  //歌曲版权受限制时
   disableMusic = () => {
     Toast.fail("该音乐无法播放", 3, () => {
       this.goBack();
     });
   };
 
+  //改变播放状态，点暂停的时候
   changeStatus = () => {
     const { setPlayerStatus, playerStatus } = this.props;
     if (playerStatus) {
@@ -56,6 +62,7 @@ class Player extends Component {
     setPlayerStatus(!playerStatus);
   };
 
+  //回到上一页面
   goBack = () => {
     const { history, setPlayerStatus } = this.props;
     setPlayerStatus(false);

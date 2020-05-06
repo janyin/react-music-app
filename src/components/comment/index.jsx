@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import "./comment.css";
 import like from "../../assets/like.svg";
 
+/**
+ * 歌曲热门评论组件
+ */
 const Comment = (props) => {
   const { username, time, avatarUrl, likedCount, content } = props.data;
 

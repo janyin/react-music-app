@@ -3,11 +3,15 @@ import PropTypes from "prop-types";
 import styles from "./song.module.css";
 import { withRouter } from "react-router-dom";
 
+/**
+ * 单个歌曲组件
+ */
 class Song extends Component {
   static propTypes = {
     data: PropTypes.object.isRequired,
   };
 
+  //跳转到播放页面
   gotoPlayer = () => {
     const { data, history } = this.props;
     history.push({ pathname: "/player", query: data });

@@ -6,6 +6,9 @@ import { Tabs } from "antd-mobile";
 import logo from "assets/logo.svg";
 import "./layout.css";
 
+/**
+ * 布局设置
+ */
 export default class Layout extends Component {
   render() {
     const { history } = this.props;

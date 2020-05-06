@@ -2,6 +2,9 @@ import React from "react";
 import foot from "assets/foot.svg";
 import "./footer.css";
 
+/**
+ * 首页底部
+ */
 const Footer = () => {
   return (
     <div className="foot">

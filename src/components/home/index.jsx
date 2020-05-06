@@ -7,6 +7,9 @@ import styles from "./home.module.css";
 import { connect } from "react-redux";
 import { getPlaylist } from "store/action";
 
+/**
+ * 首页
+ */
 class Home extends Component {
   gotoPlayList = async (id) => {
     const { playList, getPlaylist, history } = this.props;
