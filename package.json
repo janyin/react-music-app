@@ -12,12 +12,14 @@
     "customize-cra": "^0.9.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-app-rewired": "^2.1.5",
+    "react-app-rewired": "^2.1.6",
     "react-dom": "^16.13.1",
+    "react-lazy-load-image-component": "^1.4.3",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {

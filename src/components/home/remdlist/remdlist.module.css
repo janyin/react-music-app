@@ -1,21 +1,21 @@
-.remd_text {
+.text {
   overflow: hidden;
   line-height: 1.2;
   font-size: 13px;
   max-height: 30px;
 }
-.remd_li {
+.li {
   display: block;
   float: left;
   width: 33.3%;
   box-sizing: border-box;
   padding: 0 2px;
 }
-.list_img {
+.listimg {
   position: relative;
   padding-bottom: 100%;
 }
-.list_img img {
+.listimg img {
   position: absolute;
   width: 100%;
   top: 0;

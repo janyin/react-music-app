@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./play.css";
 import Comment from "components/comment/index";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { setCurMusic, setPlayerStatus } from "store/action";
 import { Toast } from "antd-mobile";
 import { connect } from "react-redux";
@@ -91,7 +92,7 @@ class Player extends Component {
                     !playerStatus && "noRotate"
                   }`}
                 >
-                  <img src={imgUrl} alt="pic" />
+                  <LazyLoadImage src={imgUrl} alt="pic" />
                 </div>
               </div>
             </div>

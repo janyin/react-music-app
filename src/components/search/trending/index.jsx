@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../search.module.css";
+import styles from "./trending.module.css";
 import PropTypes from "prop-types";
 
 const Trending = (props) => {

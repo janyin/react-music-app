@@ -7,15 +7,15 @@ import { getSearchSong, clearSearchSong, setCurWord } from "store/action";
 
 class Search extends Component {
   searchWord = async (val) => {
-    const { getSearchSong, setCurWord } = this.props;
+    const { getSearchSong, setCurWord, curWord } = this.props;
 
     try {
       Toast.loading("正在加载数据...", 100);
-      if (!this.props.curWord) {
+      if (!curWord) {
         setCurWord(val);
       }
       // eslint-disable-next-line
-      let res = await getSearchSong(val);
+      const res = await getSearchSong();
       Toast.hide();
     } catch (error) {
       Toast.hide();

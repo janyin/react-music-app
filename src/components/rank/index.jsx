@@ -14,7 +14,7 @@ const Rank = (props) => {
           <div className={styles.hot_time}>更新日期：{getTime()}</div>
         </div>
       </div>
-      <section style={{ paddingBottom: "68px" }}>
+      <section className={styles.ranklist}>
         {rank.map((value) => (
           <Song data={value} key={value.id} />
         ))}

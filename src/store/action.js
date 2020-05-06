@@ -1,11 +1,11 @@
 import * as API from "api/config";
-import * as PARSE from "utils/apiparse";
+import * as PARSE from "utils/parse";
 
 export const getHomeData = () => {
   return async (dispatch) => {
     try {
-      let newSongResponse = await API.getNewSong();
-      let remdResponse = await API.getRemd();
+      const newSongResponse = await API.getNewSong();
+      const remdResponse = await API.getRemd();
 
       dispatch({
         type: "SETHOMEDATA",
@@ -23,7 +23,7 @@ export const getHomeData = () => {
 export const getRankData = () => {
   return async (dispatch) => {
     try {
-      let response = await API.getRank();
+      const response = await API.getRank();
 
       dispatch({
         type: "SETRANKDATA",
@@ -38,7 +38,7 @@ export const getRankData = () => {
 export const getHotWord = () => {
   return async (dispatch) => {
     try {
-      let response = await API.getWord();
+      const response = await API.getWord();
 
       dispatch({
         type: "SETHOTWORD",
@@ -53,12 +53,11 @@ export const getHotWord = () => {
 export const getPlaylist = (id) => {
   return async (dispatch) => {
     try {
-      let response = await API.getPlaylist(id);
-      let result = PARSE.playList(response);
+      const response = await API.getPlaylist(id);
 
       dispatch({
         type: "SETPLAYLIST",
-        result,
+        result: PARSE.playList(response),
       });
     } catch (error) {
       console.log(error);
@@ -66,15 +65,15 @@ export const getPlaylist = (id) => {
   };
 };
 
-export const getSearchSong = (word) => {
-  return async (dispatch) => {
+export const getSearchSong = () => {
+  return async (dispatch, getState) => {
     try {
-      let response = await API.getSearchSong(word.trim());
-      let result = PARSE.search(response);
+      const word = getState().curWord;
+      const response = await API.getSearchSong(word);
 
       dispatch({
         type: "GETSEARCHSONG",
-        result,
+        result: PARSE.search(response),
       });
     } catch (error) {
       console.log(error);

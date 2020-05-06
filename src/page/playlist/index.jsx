@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./playlist.module.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Song from "components/song/index";
 import { connect } from "react-redux";
 
@@ -22,7 +23,7 @@ class PlayList extends React.Component {
           </div>
           <div className={styles.list_head_content}>
             <div className={styles.lhc_img}>
-              <img src={imgUrl} alt="pic" />
+              <LazyLoadImage src={imgUrl} alt="pic" />
               <span className={styles.s_icon}>歌单</span>
             </div>
             <div className={styles.lhc_info}>
