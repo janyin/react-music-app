@@ -10,7 +10,7 @@ const RemdList = (props) => {
   const { id, imgUrl, play, name, gotoPlayList } = props;
 
   return (
-    <span onClick={() => gotoPlayList(id)} className={styles.li}>
+    <span onClick={() => gotoPlayList(id)} className={styles.remdli}>
       <div className={styles.listimg}>
         <LazyLoadImage src={imgUrl} alt="pic" />
         <span>{play}</span>

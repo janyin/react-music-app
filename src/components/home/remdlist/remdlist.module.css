@@ -4,7 +4,7 @@
   font-size: 13px;
   max-height: 30px;
 }
-.li {
+.remdli {
   display: block;
   float: left;
   width: 33.3%;
@@ -22,7 +22,7 @@
   left: 0;
   z-index: 1;
 }
-.list_img span {
+.listimg span {
   position: absolute;
   right: 5px;
   top: 2px;

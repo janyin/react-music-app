@@ -10,11 +10,6 @@ import { connect } from "react-redux";
  * 播放页面
  */
 class Player extends Component {
-  constructor(props) {
-    super(props);
-    this.audio = React.createRef();
-  }
-
   //获取歌曲播放数据
   async componentDidMount() {
     try {
@@ -54,11 +49,6 @@ class Player extends Component {
   //改变播放状态，点暂停的时候
   changeStatus = () => {
     const { setPlayerStatus, playerStatus } = this.props;
-    if (playerStatus) {
-      this.audio.current.pause();
-    } else {
-      this.audio.current.play();
-    }
     setPlayerStatus(!playerStatus);
   };
 
@@ -78,7 +68,7 @@ class Player extends Component {
     return (
       <div>
         {playerStatus && (
-          <audio src={musicUrl} loop autoPlay ref={this.audio}>
+          <audio src={musicUrl} loop autoPlay>
             你的浏览器暂时不支持H5播放
           </audio>
         )}
