@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import styles from "./playlist.module.css";
+import styles from "./index.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Song from "@/components/song/index";
 import { connect } from "react-redux";
 
 /**
  * 歌单详情页面
+ * @author janyin
  */
 class PlayList extends Component {
     render() {
@@ -17,10 +18,8 @@ class PlayList extends Component {
         return (
             <div className={styles.playlistwrap}>
                 <section className={styles.list_head}>
-                    <div
-                        className={styles.list_head_bg}
-                        style={{ backgroundImage: `url(${imgUrl})` }}
-                    ></div>
+                    <div className={styles.list_head_bg} style={{ backgroundImage: `url(${imgUrl})` }}>
+                    </div>
                     <div className={styles.getBack} onClick={goBack}>
                         <h3>返回</h3>
                     </div>
@@ -36,16 +35,15 @@ class PlayList extends Component {
                 </section>
                 <section className={styles.list_info}>
                     <div className={styles.info_tags}>
-                        标签:{tags && tags.map((value) => 
+                        标签:{tags && tags.map((value) =>
                         (<em className={styles.tag} key={value}>
                             {value}
                         </em>))}
                     </div>
-                    {desc && (
-                        <div className={styles.info_intro}>
+                    {desc &&
+                        (<div className={styles.info_intro}>
                             <span>简介：{desc.substring(0, 100)} </span>
-                        </div>
-                    )}
+                        </div>)}
                 </section>
                 <div className={styles.list_song}>
                     <h3>歌曲列表</h3>

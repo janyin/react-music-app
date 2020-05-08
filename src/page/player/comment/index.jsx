@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./comment.css";
-import like from "../../../assets/like.svg";
+import "./index.css";
+import like from "@/assets/like.svg";
 
 /**
  * 歌曲热门评论组件

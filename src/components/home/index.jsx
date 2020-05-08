@@ -3,27 +3,26 @@ import { Toast } from "antd-mobile";
 import Song from "@/components/song/index";
 import RemdList from "./remdlist/index";
 import Footer from "./footer/index";
-import styles from "./home.module.css";
+import styles from "./index.module.css";
 import { connect } from "react-redux";
 import { getPlaylist } from "@/store/action";
 
 /**
  * 首页
+ * @author janyin
  */
 class Home extends Component {
+    /**
+     * 跳转到歌单详情页面
+     * @param {Number} id 歌单ID
+     */
     gotoPlayList = async (id) => {
         const { playList, getPlaylist, history } = this.props;
         if (!playList.id || id !== playList.id) {
-            try {
-                Toast.loading("正在加载数据...", 100);
-                // eslint-disable-next-line
-                let res = await getPlaylist(id);
-                Toast.hide();
-            } catch (error) {
-                Toast.hide();
-                Toast.offline("网络错误");
-                console.log(error);
-            }
+            Toast.loading("正在加载数据...", 100);
+            // eslint-disable-next-line
+            let res = await getPlaylist(id);
+            Toast.hide();
         }
         history.push("/playlist");
     };
@@ -35,22 +34,12 @@ class Home extends Component {
             <div className={styles.content}>
                 <h2 className={styles.remd}>推荐歌单</h2>
                 <div className={styles.list}>
-                    {remd.slice(0, 3).map((value) => (
-                        <RemdList
-                            gotoPlayList={this.gotoPlayList}
-                            {...value}
-                            key={value.id}
-                        />
-                    ))}
+                    {remd.slice(0, 3).map((value) =>
+                        (<RemdList gotoPlayList={this.gotoPlayList} {...value} key={value.id} />))}
                 </div>
                 <div className={styles.list}>
                     {remd.slice(3, 6).map((value) => (
-                        <RemdList
-                            gotoPlayList={this.gotoPlayList}
-                            {...value}
-                            key={value.id}
-                        />
-                    ))}
+                        <RemdList gotoPlayList={this.gotoPlayList} {...value} key={value.id} />))}
                 </div>
                 <h2 className={styles.remd}>最新音乐</h2>
                 <section>

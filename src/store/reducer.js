@@ -12,56 +12,56 @@ let defaultState = {
 
 export const reducer = (state = defaultState, action) => {
     switch (action.type) {
-        case "SETHOMEDATA": {
+        case "SET_HOMEDATA": {
             return {
                 ...state,
                 ...action.result,
             };
         }
-        case "SETRANKDATA": {
+        case "SET_RANKDATA": {
             return {
                 ...state,
                 rank: action.result,
             };
         }
-        case "SETHOTWORD": {
+        case "SET_HOTWORD": {
             return {
                 ...state,
                 hotWord: action.result,
             };
         }
-        case "SETPLAYLIST": {
+        case "SET_PLAYLIST": {
             return {
                 ...state,
                 playList: action.result,
             };
         }
-        case "GETSEARCHSONG": {
+        case "GET_SEARCHSONG": {
             return {
                 ...state,
                 searchResult: action.result,
             };
         }
-        case "SETCURWORD": {
+        case "SET_CURWORD": {
             return {
                 ...state,
                 curWord: action.curWord,
             };
         }
-        case "CLEARSEARCH": {
+        case "CLEAR_SEARCH": {
             return {
                 ...state,
                 searchResult: [],
                 curWord: '',
             };
         }
-        case "SETMUSICINFO": {
+        case "SET_MUSICINFO": {
             return {
                 ...state,
                 curMusic: action.result,
             };
         }
-        case "SETPLAYERSTATUS": {
+        case "SET_PLAYERSTATUS": {
             return {
                 ...state,
                 playerStatus: action.status,

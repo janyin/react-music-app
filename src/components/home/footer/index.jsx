@@ -1,6 +1,6 @@
 import React from "react";
 import foot from "@/assets/foot.svg";
-import "./footer.css";
+import "./index.css";
 
 /**
  * 首页底部

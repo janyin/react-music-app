@@ -1,10 +1,11 @@
 import React from "react";
 import Song from "@/components/song/index";
-import styles from "./rank.module.css";
+import styles from "./index.module.css";
 import { connect } from "react-redux";
 
 /**
  * 排行榜页面
+ * @author janyin
  */
 const Rank = (props) => {
     const { rank } = props;
@@ -26,7 +27,9 @@ const Rank = (props) => {
     );
 };
 
-//获取当前时间
+/**
+ * 获取当前时间
+ */
 const getTime = () => {
     const d = new Date();
     return `${d.getMonth() + 1}月${d.getDate()}日`;

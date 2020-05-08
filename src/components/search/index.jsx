@@ -7,29 +7,23 @@ import { getSearchSong, clearSearchSong, setCurWord } from "@/store/action";
 
 /**
  * 搜索页面
+ * @author janyin
  */
 class Search extends Component {
-
     /**
      * 搜索歌曲处理
      * @param {String} val 搜索词
      */
     searchWord = async (val) => {
         const { getSearchSong, setCurWord, curWord } = this.props;
-
-        try {
-            Toast.loading("正在加载数据...", 100);
-            if (!curWord) {
-                setCurWord(val);
-            }
-            // eslint-disable-next-line
-            const res = await getSearchSong();
-            Toast.hide();
-        } catch (error) {
-            Toast.hide();
-            Toast.offline("网络错误");
-            console.log(error);
+        
+        Toast.loading("正在加载数据...", 100);
+        if (!curWord) {
+            setCurWord(val);
         }
+        // eslint-disable-next-line
+        const res = await getSearchSong();
+        Toast.hide();
     };
 
     /**

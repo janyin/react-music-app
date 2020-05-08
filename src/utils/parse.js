@@ -1,9 +1,10 @@
 /**
  * axios请求的数据在这里重新解析为：组件所需的数据格式
- * @param {Object} response 
+ * @author janyin
+ * @param {Object} response axios返回的数据
  */
 export const newSong = (response) =>
-    response.data.result.map(({ song: { artists, album }, id, name }) => ({
+    response.result.map(({ song: { artists, album }, id, name }) => ({
         id,
         title: name,
         artists: getArtists(artists),
@@ -11,7 +12,7 @@ export const newSong = (response) =>
     }));
 
 export const rank = (response) =>
-    response.data.playlist.tracks
+    response.playlist.tracks
         .slice(0, 20)
         .map(({ ar, id, name, alia, al }, index) => {
             let color = false;
@@ -43,7 +44,7 @@ export const rank = (response) =>
         });
 
 export const remd = (response) =>
-    response.data.result.slice(0, 6).map(({ id, name, picUrl, playCount }) => {
+    response.result.slice(0, 6).map(({ id, name, picUrl, playCount }) => {
         let play = playCount.toString();
 
         if (play.length >= 6) {
@@ -59,7 +60,7 @@ export const remd = (response) =>
     });
 
 export const playList = (response) => {
-    const playListSong = response.data.playlist.tracks
+    const playListSong = response.playlist.tracks
         .slice(0, 25)
         .map((value, index) => {
             let artistsName = "";
@@ -81,7 +82,7 @@ export const playList = (response) => {
             };
         });
 
-    const { id, tags, description, name, coverImgUrl } = response.data.playlist;
+    const { id, tags, description, name, coverImgUrl } = response.playlist;
 
     return {
         id,
@@ -94,7 +95,7 @@ export const playList = (response) => {
 };
 
 export const search = (response) =>
-    response.data.result.songs.map(({ artists, id, name, alias, album }) => ({
+    response.result.songs.map(({ artists, id, name, alias, album }) => ({
         id,
         title: name,
         alias: alias[0],
@@ -114,12 +115,23 @@ export const comment = (data) => {
     );
 };
 
+/**
+ *
+ * 评论时间处理,如果是2020年则不显示年份
+ * @param {Number} time 自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数
+ * @returns 返回评论的时间
+ */
 function parseCommentDate(time) {
-    let date = new Date(Number(time));
+    let date = new Date(time);
     let year = date.getFullYear() === 2020 ? "" : `${date.getFullYear()}年`;
     return `${year}${date.getMonth() + 1}月${date.getDate()}日`;
 }
 
+/**
+ * 一首歌多个歌手的情况
+ * @param {Array} artists 歌手数组
+ * @returns 返回歌手名字字符串
+ */
 function getArtists(artists) {
     if (artists.length >= 2) {
         return artists[0].name + "/" + artists[1].name;

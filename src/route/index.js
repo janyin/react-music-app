@@ -8,22 +8,20 @@ import { getHomeData, getRankData, getHotWord } from "@/store/action";
 const Player = lazy(() => import("@/page/player/index"));
 const PlayList = lazy(() => import("@/page/playlist/index"));
 
+/**
+ * 路由配置组件
+ * @author janyin
+ */
 class RouteConfig extends Component {
     /**
      * 请求初始数据
      */
     async componentDidMount() {
         Toast.loading("正在加载数据...", 100);
-        try {
-            const { getHomeData, getRankData, getHotWord } = this.props;
-            // eslint-disable-next-line
-            let res = await Promise.all([getHomeData(), getRankData(), getHotWord()]);
-            Toast.hide();
-        } catch (error) {
-            Toast.hide();
-            Toast.offline("网络错误");
-            console.log(error);
-        }
+        const { getHomeData, getRankData, getHotWord } = this.props;
+        // eslint-disable-next-line
+        let res = await Promise.all([getHomeData(), getRankData(), getHotWord()]);
+        Toast.hide();
     }
 
     render() {
