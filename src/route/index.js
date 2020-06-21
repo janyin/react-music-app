@@ -1,10 +1,10 @@
 import React, { Component, lazy, Suspense } from "react";
 import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
-import { Toast, ActivityIndicator } from "antd-mobile";
-import Layout from "@/page/layout/index";
+import { ActivityIndicator } from "antd-mobile";
 import { connect } from "react-redux";
 import { getHomeData, getRankData, getHotWord } from "@/store/action";
 
+const Layout = lazy(() => import("@/page/layout/index"));
 const Player = lazy(() => import("@/page/player/index"));
 const PlayList = lazy(() => import("@/page/playlist/index"));
 
@@ -17,11 +17,8 @@ class RouteConfig extends Component {
      * 请求初始数据
      */
     async componentDidMount() {
-        Toast.loading("正在加载数据...", 100);
         const { getHomeData, getRankData, getHotWord } = this.props;
-        // eslint-disable-next-line
-        let res = await Promise.all([getHomeData(), getRankData(), getHotWord()]);
-        Toast.hide();
+        await Promise.all([getHomeData(), getRankData(), getHotWord()]);
     }
 
     render() {

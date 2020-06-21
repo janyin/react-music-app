@@ -5,7 +5,7 @@ import { createLogger } from "redux-logger";
 
 const middleware = [thunk];
 
-//生产环境不打印action
+// 生产环境不打印action
 if (process.env.NODE_ENV !== "production") {
     middleware.push(createLogger());
 }

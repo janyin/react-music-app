@@ -85,8 +85,8 @@ export const setCurWord = (word) => ({
  */
 export const setCurMusic = (music) => async (dispatch) => {
     const { id, artists, title } = music;
-    const check = await API.checkMusic(id);
-    if (check.success) {
+    const { success } = await API.checkMusic(id);
+    if (success) {
         const resData = await Promise.all([
             API.getMusicUrl(id),
             API.getComment(id),

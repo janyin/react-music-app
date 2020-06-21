@@ -24,7 +24,6 @@ class Player extends Component {
         
         if (data.id !== curMusic.id) {
             Toast.loading("正在加载数据...", 100);
-            // eslint-disable-next-line
             let res = await setCurMusic(data);
             Toast.hide();
             if (res === "DISABLEMUSIC") {

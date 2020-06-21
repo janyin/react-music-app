@@ -6,9 +6,7 @@ import PropTypes from "prop-types";
  * 搜索热词
  * @author janyin
  */
-const Trending = (props) => {
-    const { hotWord, searchWord } = props;
-    
+const Trending = ({ hotWord, searchWord }) => {    
     return (
         <div className={styles.hot_list}>
             <h3>热门搜索</h3>
