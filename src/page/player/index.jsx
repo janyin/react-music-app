@@ -21,7 +21,7 @@ function Player(props) {
     history,
     location: { query: data },
   } = props;
-  let player = React.createRef();
+  const player = React.createRef();
 
   /**
    *回到上一页面
@@ -44,9 +44,9 @@ function Player(props) {
    */
   function changeStatus() {
     if (playerStatus) {
-      player.pause();
+      player.current.pause();
     } else {
-      player.play();
+      player.current.play();
     }
     setPlayerStatus(!playerStatus);
   }
@@ -67,7 +67,7 @@ function Player(props) {
 
   return (
     <div>
-      <audio src={musicUrl} loop autoPlay ref={(ref) => (player = ref)}>
+      <audio src={musicUrl} loop autoPlay ref={player}>
         你的浏览器暂时不支持H5播放
       </audio>
       <div
