@@ -1,13 +1,15 @@
-import React from "react";
-import styles from "./index.module.css";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import styles from './index.module.css';
 
 /**
  * 推荐歌单
  */
-const RemdList = (props) => {
-  const { id, imgUrl, play, name, gotoPlayList } = props;
+function RemdList(props) {
+  const {
+    id, imgUrl, play, name, gotoPlayList,
+  } = props;
 
   return (
     <span onClick={() => gotoPlayList(id)} className={styles.remdli}>
@@ -18,7 +20,7 @@ const RemdList = (props) => {
       <p className={styles.text}>{name}</p>
     </span>
   );
-};
+}
 
 RemdList.propTypes = {
   id: PropTypes.number.isRequired,

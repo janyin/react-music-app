@@ -1,9 +1,9 @@
-import { get } from "./server";
+import { get } from './server';
 
 /**
  * 搜索热词
  */
-export const getWord = () => get(`/search/hot`);
+export const getWord = () => get('/search/hot');
 
 /**
  * 搜索歌曲
@@ -13,17 +13,17 @@ export const getSearchSong = (word) => get(`/search?keywords=${word}`);
 /**
  * 歌曲排行榜
  */
-export const getRank = () => get(`/top/list?idx=1`);
+export const getRank = () => get('/top/list?idx=1');
 
 /**
  * 推荐歌曲列表
  */
-export const getRemd = () => get(`/personalized`);
+export const getRemd = () => get('/personalized');
 
 /**
  * 最新歌曲列表
  */
-export const getNewSong = () => get(`/personalized/newsong`);
+export const getNewSong = () => get('/personalized/newsong');
 
 /**
  * 音乐播放url
