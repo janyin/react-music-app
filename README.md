@@ -1,6 +1,6 @@
 # 基于React的网易云音乐移动端web app
 
-# React版本：https://github.com/janyin/vue-wangyiyun-music
+# Vue版本：https://github.com/janyin/vue-wangyiyun-music
 
 * 项目技术都比较简单，适合新手拿来练手的入门级React开发实战项目;
 * 主要功能有：推荐歌单、搜索歌曲、播放页等;
@@ -37,11 +37,11 @@
 
 ## 效果截图
 
-* ![首页](https://github.com/janyin/vue-wangyiyun-music/blob/master/screenshot/1.png)
-![播放](https://github.com/janyin/vue-wangyiyun-music/blob/master/screenshot/2.png)
+* ![首页](https://github.com/janyin/react-music-app/blob/master/screenshot/1.png)
+![播放](https://github.com/janyin/react-music-app/blob/master/screenshot/2.png)
 
-* ![评论](https://github.com/janyin/vue-wangyiyun-music/blob/master/screenshot/3.png)
-![歌单](https://github.com/janyin/vue-wangyiyun-music/blob/master/screenshot/4.png)
+* ![评论](https://github.com/janyin/react-music-app/blob/master/screenshot/3.png)
+![歌单](https://github.com/janyin/react-music-app/blob/master/screenshot/4.png)
 
 ## 项目目录
 
