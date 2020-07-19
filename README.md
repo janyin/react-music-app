@@ -37,11 +37,11 @@
 
 ## 效果截图
 
-* ![首页](https://github.com/janyin/react-music-app/blob/master/screenshot/1.png)
-![播放](https://github.com/janyin/react-music-app/blob/master/screenshot/2.png)
+* <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/1.png" width="375px" height="812px" />
+ <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/2.png" width="375px" height="812px" /> <br />
 
-* ![评论](https://github.com/janyin/react-music-app/blob/master/screenshot/3.png)
-![歌单](https://github.com/janyin/react-music-app/blob/master/screenshot/4.png)
+*  <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/3.png" width="375px" height="812px" />
+ <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/4.png" width="375px" height="812px" /> <br />
 
 ## 项目目录
 
