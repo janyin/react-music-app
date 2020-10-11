@@ -13,7 +13,7 @@ export const getSearchSong = (word) => get(`/search?keywords=${word}`);
 /**
  * 歌曲排行榜
  */
-export const getRank = () => get('/top/list?idx=1');
+export const getRank = () => get('/playlist/detail?id=3778678');
 
 /**
  * 推荐歌曲列表
