@@ -37,9 +37,9 @@
 
 ## 效果截图
 
-* <img src="https://sm.ms/image/y7VdBDKOMNbx4ks" width="375px" height="812px" /> <br />
+* <img src="https://i.loli.net/2020/10/19/y7VdBDKOMNbx4ks.png" width="375px" height="812px" /> <br />
 
-*  <img src="https://sm.ms/image/k97yYagBlzweuOT" width="375px" height="812px" /> <br />
+*  <img src="https://i.loli.net/2020/10/19/k97yYagBlzweuOT.png" width="375px" height="812px" /> <br />
 
 ## 项目目录
 
