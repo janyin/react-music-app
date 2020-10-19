@@ -37,11 +37,9 @@
 
 ## 效果截图
 
-* <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/1.png" width="375px" height="812px" />
- <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/2.png" width="375px" height="812px" /> <br />
+* <img src="https://sm.ms/image/y7VdBDKOMNbx4ks" width="375px" height="812px" /> <br />
 
-*  <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/3.png" width="375px" height="812px" />
- <img src="https://github.com/janyin/react-music-app/blob/master/screenshot/4.png" width="375px" height="812px" /> <br />
+*  <img src="https://sm.ms/image/k97yYagBlzweuOT" width="375px" height="812px" /> <br />
 
 ## 项目目录
 
