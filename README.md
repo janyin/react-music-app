@@ -35,12 +35,6 @@
   npm run build (打包发布) or yarn build
   ```
 
-## 效果截图
-
-* <img src="https://i.loli.net/2020/10/19/y7VdBDKOMNbx4ks.png" width="375px" height="812px" /> <br />
-
-*  <img src="https://i.loli.net/2020/10/19/k97yYagBlzweuOT.png" width="375px" height="812px" /> <br />
-
 ## 项目目录
 
 <details>
