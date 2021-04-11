@@ -6,11 +6,7 @@ import like from '@/assets/like.svg';
 /**
  * 歌曲热门评论组件
  */
-function Comment({
-  data: {
-    username, time, avatarUrl, likedCount, content,
-  },
-}) {
+function Comment({ data: { username, time, avatarUrl, likedCount, content } }) {
   return (
     <div className="comment_item">
       <div className="cmt_img">

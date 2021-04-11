@@ -18,9 +18,9 @@ function Search({
   searchResult,
 }) {
   /**
-  * 搜索歌曲处理
-  * @param {String} val 搜索词
-  */
+   * 搜索歌曲处理
+   * @param {String} val 搜索词
+   */
   async function searchWord(val) {
     Toast.loading('正在加载数据...', 100);
     if (!curWord) {
@@ -31,9 +31,9 @@ function Search({
   }
 
   /**
-  * 搜索框值改变处理
-  * @param {String} val 搜索框的值
-  */
+   * 搜索框值改变处理
+   * @param {String} val 搜索框的值
+   */
   function handleChange(val) {
     if (!val.trim()) {
       clearSearchSong();

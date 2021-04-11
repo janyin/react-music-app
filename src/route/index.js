@@ -1,7 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import {
-  HashRouter, Route, Redirect, Switch,
-} from 'react-router-dom';
+import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { ActivityIndicator } from 'antd-mobile';
 import { connect } from 'react-redux';
 import { getHomeData, getRankData, getHotWord } from '@/store/action';

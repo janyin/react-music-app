@@ -12,7 +12,11 @@ function Trending({ hotWord, searchWord }) {
       <h3>热门搜索</h3>
       <div className={styles.list}>
         {hotWord.map((value) => (
-          <span className={styles.hot_word} key={value.first} onClick={() => searchWord(value.first)}>
+          <span
+            className={styles.hot_word}
+            key={value.first}
+            onClick={() => searchWord(value.first)}
+          >
             <span>{value.first}</span>
           </span>
         ))}

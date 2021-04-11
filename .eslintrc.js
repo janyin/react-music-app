@@ -3,10 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -18,12 +15,10 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react'],
   rules: {
-    "import/no-unresolved": 0,
-    "react/jsx-filename-extension": 0,
-    "react/prop-types": 0,
+    'import/no-unresolved': 0,
+    'react/jsx-filename-extension': 0,
+    'react/prop-types': 0,
   },
 };

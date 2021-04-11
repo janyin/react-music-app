@@ -9,7 +9,7 @@
 .hot_icon {
   width: 142px;
   height: 67px;
-  background-image: url("~@/assets/hot_icon.png");
+  background-image: url('~@/assets/hot_icon.png');
   background-position: -24px -30px;
   background-size: 166px 97px;
 }
@@ -30,11 +30,11 @@
   position: relative;
   padding-top: 38.9%;
   overflow: hidden;
-  background: url("~@/assets/hot_bg.jpg") no-repeat;
+  background: url('~@/assets/hot_bg.jpg') no-repeat;
   background-size: contain;
 }
 .hot_top:after {
-  content: " ";
+  content: ' ';
   position: absolute;
   left: 0;
   top: 0;

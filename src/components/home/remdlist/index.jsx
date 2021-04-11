@@ -7,9 +7,7 @@ import styles from './index.module.css';
  * 推荐歌单
  */
 function RemdList(props) {
-  const {
-    id, imgUrl, play, name, gotoPlayList,
-  } = props;
+  const { id, imgUrl, play, name, gotoPlayList } = props;
 
   return (
     <span onClick={() => gotoPlayList(id)} className={styles.remdli}>

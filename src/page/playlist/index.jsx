@@ -9,9 +9,7 @@ import styles from './index.module.css';
  * @author janyin
  */
 function PlayList({
-  playList: {
-    imgUrl, name, tags, desc, music,
-  },
+  playList: { imgUrl, name, tags, desc, music },
   history: { goBack },
 }) {
   return (
@@ -37,19 +35,20 @@ function PlayList({
       <section className={styles.list_info}>
         <div className={styles.info_tags}>
           标签:
-          {tags && tags.map((value) => (
-            <em className={styles.tag} key={value}>
-              {value}
-            </em>
-          ))}
+          {tags &&
+            tags.map((value) => (
+              <em className={styles.tag} key={value}>
+                {value}
+              </em>
+            ))}
         </div>
         {desc && (
-        <div className={styles.info_intro}>
-          <span>
-            简介：
-            {desc.substring(0, 100)}
-          </span>
-        </div>
+          <div className={styles.info_intro}>
+            <span>
+              简介：
+              {desc.substring(0, 100)}
+            </span>
+          </div>
         )}
       </section>
       <div className={styles.list_song}>

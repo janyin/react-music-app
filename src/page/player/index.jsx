@@ -12,9 +12,7 @@ import './index.css';
  */
 function Player(props) {
   const {
-    curMusic: {
-      title, artists, imgUrl, musicUrl, comment,
-    },
+    curMusic: { title, artists, imgUrl, musicUrl, comment },
     playerStatus,
     setCurMusic,
     setPlayerStatus,
@@ -70,10 +68,7 @@ function Player(props) {
       <audio src={musicUrl} loop autoPlay ref={player}>
         你的浏览器暂时不支持H5播放
       </audio>
-      <div
-        className="song_bg"
-        style={{ backgroundImage: `url(${imgUrl})` }}
-      />
+      <div className="song_bg" style={{ backgroundImage: `url(${imgUrl})` }} />
       <div className="wrapper">
         <div className="player_getBack" onClick={goBack}>
           <h3>返回</h3>
@@ -95,17 +90,13 @@ function Player(props) {
         </div>
         <div className="song_info">
           <p className="song_title">
-            {title}
-            {' '}
-            —
-            {artists}
+            {title} —{artists}
           </p>
         </div>
         <div className="comment_wrap">
           <p>热门评论</p>
-          {comment && comment.map((val) => (
-            <Comment key={val.content} data={val} />
-          ))}
+          {comment &&
+            comment.map((val) => <Comment key={val.content} data={val} />)}
         </div>
       </div>
     </div>

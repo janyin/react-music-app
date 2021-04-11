@@ -12,14 +12,12 @@ import styles from './index.module.css';
  * 首页
  * @author janyin
  */
-function Home({
-  playList, getPlaylist, remd, newSong,
-}) {
+function Home({ playList, getPlaylist, remd, newSong }) {
   const history = useHistory();
   /**
-  * 跳转到歌单详情页面
-  * @param {Number} id 歌单ID
-  */
+   * 跳转到歌单详情页面
+   * @param {Number} id 歌单ID
+   */
   async function gotoPlayList(id) {
     if (!playList.id || id !== playList.id) {
       Toast.loading('正在加载数据...', 100);
@@ -34,20 +32,12 @@ function Home({
       <h2 className={styles.remd}>推荐歌单</h2>
       <div className={styles.list}>
         {remd.slice(0, 3).map((value) => (
-          <RemdList
-            gotoPlayList={gotoPlayList}
-            {...value}
-            key={value.id}
-          />
+          <RemdList gotoPlayList={gotoPlayList} {...value} key={value.id} />
         ))}
       </div>
       <div className={styles.list}>
         {remd.slice(3, 6).map((value) => (
-          <RemdList
-            gotoPlayList={gotoPlayList}
-            {...value}
-            key={value.id}
-          />
+          <RemdList gotoPlayList={gotoPlayList} {...value} key={value.id} />
         ))}
       </div>
       <h2 className={styles.remd}>最新音乐</h2>

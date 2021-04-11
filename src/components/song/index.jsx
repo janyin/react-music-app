@@ -7,9 +7,7 @@ import styles from './index.module.css';
  * @author janyin
  */
 function Song({ data }) {
-  const {
-    title, alias, artists, album, rank = false, color = false,
-  } = data;
+  const { title, alias, artists, album, rank = false, color = false } = data;
   const history = useHistory();
 
   return (
@@ -18,11 +16,7 @@ function Song({ data }) {
       onClick={() => history.push({ pathname: '/player', query: data })}
     >
       {rank && (
-        <div
-          className={`${styles.song_num} ${
-            color && styles.highlight
-          }`}
-        >
+        <div className={`${styles.song_num} ${color && styles.highlight}`}>
           {rank}
         </div>
       )}
@@ -30,20 +24,11 @@ function Song({ data }) {
         <div className={styles.song_info}>
           <div className={styles.song_title}>
             {title}
-            {alias && (
-            <span>
-              (
-              {alias}
-              )
-            </span>
-            )}
+            {alias && <span>({alias})</span>}
           </div>
           <div className={styles.song_detail}>
             <i className={styles.sq} />
-            {artists}
-            {' '}
-            -
-            {album}
+            {artists} -{album}
           </div>
         </div>
         <div className={styles.song_play}>

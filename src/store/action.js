@@ -29,8 +29,8 @@ export const getRankData = () => async (dispatch) => {
 };
 
 /**
-* 搜索热词的数据请求
-*/
+ * 搜索热词的数据请求
+ */
 export const getHotWord = () => async (dispatch) => {
   const response = await API.getWord();
   dispatch({

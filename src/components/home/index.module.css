@@ -12,7 +12,7 @@
   line-height: 20px;
 }
 .remd:after {
-  content: " ";
+  content: ' ';
   position: absolute;
   left: 0;
   top: 50%;
@@ -27,5 +27,5 @@
   clear: both;
   height: 0;
   overflow: hidden;
-  content: ".";
+  content: '.';
 }
