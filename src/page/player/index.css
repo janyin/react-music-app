@@ -150,7 +150,7 @@
   background-size: auto 100%;
   transform: scale(1.2);
   transform-origin: center;
-  filter: blur(10px);
+  filter: blur(3px);
   position: fixed;
   left: 0;
   right: 0;

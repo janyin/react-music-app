@@ -1,8 +1,8 @@
-import React, { useEffect, lazy, Suspense } from 'react';
-import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { getHomeData, getHotWord, getRankData } from '@/store/action';
 import { ActivityIndicator } from 'antd-mobile';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getHomeData, getRankData, getHotWord } from '@/store/action';
+import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 const Layout = lazy(() => import('@/page/layout/index'));
 const Player = lazy(() => import('@/page/player/index'));
@@ -14,10 +14,11 @@ const PlayList = lazy(() => import('@/page/playlist/index'));
  */
 function RouteConfig({ getHomeData, getRankData, getHotWord }) {
   useEffect(() => {
-    async function getInitData() {
-      await Promise.all([getHomeData(), getRankData(), getHotWord()]);
+    function getInitData() {
+      Promise.all([getHomeData(), getRankData(), getHotWord()]);
     }
     getInitData();
+    // eslint-disable-next-line
   }, []);
 
   return (

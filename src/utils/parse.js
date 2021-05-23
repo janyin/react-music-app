@@ -1,11 +1,4 @@
 /**
- * axios请求的数据在这里重新解析为：组件所需的数据格式
- * @author janyin
- * @param {Object} response axios返回的数据
- */
-
-/**
- *
  * 评论时间处理,如果是2020年则不显示年份
  * @param {Number} time 自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数
  * @returns 返回评论的时间
@@ -28,16 +21,27 @@ function getArtists(artists) {
   return artists[0].name;
 }
 
-export const newSong = (response) =>
-  response.result.map(({ song: { artists, album }, id, name }) => ({
+/**
+ * 新歌推荐数据
+ * @param {*} response 
+ * @returns 
+ */
+export const newSong = (response) => {
+  return response.result.map(({ song: { artists, album }, id, name }) => ({
     id,
     title: name,
     artists: getArtists(artists),
     album: album.name,
   }));
-
-export const rank = (response) =>
-  response.playlist.tracks
+}
+  
+/**
+ * 排行榜页面数据
+ * @param {*} response 
+ * @returns 
+ */
+export const rank = (response) => {
+  return response.playlist.tracks
     .slice(0, 20)
     .map(({ ar, id, name, alia, al }, index) => {
       let color = false;
@@ -67,9 +71,14 @@ export const rank = (response) =>
         color,
       };
     });
-
-export const remd = (response) =>
-  response.result.slice(0, 6).map(({ id, name, picUrl, playCount }) => {
+}
+/**
+ * 推荐歌单列表
+ * @param {*} response 
+ * @returns 
+ */
+export const remd = (response) => {
+  return response.result.slice(0, 6).map(({ id, name, picUrl, playCount }) => {
     let play = playCount.toString();
 
     if (play.length >= 6) {
@@ -83,7 +92,12 @@ export const remd = (response) =>
       play,
     };
   });
-
+}
+/**
+ * 歌单详情页
+ * @param {*} response 
+ * @returns 
+ */
 export const playList = (response) => {
   const playListSong = response.playlist.tracks
     .slice(0, 25)
@@ -118,21 +132,30 @@ export const playList = (response) => {
     imgUrl: coverImgUrl,
   };
 };
-
-export const search = (response) =>
-  response.result.songs.map(({ artists, id, name, alias, album }) => ({
+/**
+ * 搜索结果
+ * @param {*} response 
+ */
+export const search = (response) => {
+  return response.result.songs.map(({ artists, id, name, alias, album }) => ({
     id,
     title: name,
     alias: alias[0],
     artists: getArtists(artists),
     album: album.name,
   }));
-
-export const comment = (data) =>
-  data.map(({ content, likedCount, user: { nickname, avatarUrl }, time }) => ({
+}
+/**
+ * 歌曲评论
+ * @param {*} data 
+ * @returns 
+ */
+export const comment = (data) => {
+  return data.map(({ content, likedCount, user: { nickname, avatarUrl }, time }) => ({
     content,
     likedCount,
     username: nickname,
     avatarUrl,
     time: parseCommentDate(time),
   }));
+}

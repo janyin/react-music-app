@@ -1,12 +1,12 @@
-import React from 'react';
-import { Toast } from 'antd-mobile';
 import Song from '@/components/song/';
-import { connect } from 'react-redux';
 import { getPlaylist } from '@/store/action';
+import { Toast } from 'antd-mobile';
+import React from 'react';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import RemdList from './remdlist';
 import Footer from './footer';
 import styles from './index.module.css';
+import RemdList from './remdlist';
 
 /**
  * 首页
@@ -30,21 +30,29 @@ function Home({ playList, getPlaylist, remd, newSong }) {
   return (
     <div className={styles.content}>
       <h2 className={styles.remd}>推荐歌单</h2>
-      <div className={styles.list}>
-        {remd.slice(0, 3).map((value) => (
-          <RemdList gotoPlayList={gotoPlayList} {...value} key={value.id} />
-        ))}
-      </div>
-      <div className={styles.list}>
-        {remd.slice(3, 6).map((value) => (
-          <RemdList gotoPlayList={gotoPlayList} {...value} key={value.id} />
-        ))}
-      </div>
+      {remd.length > 0 ? (
+        <>
+          <div className={styles.list}>
+            {remd.slice(0, 3).map((value) => (
+              <RemdList gotoPlayList={gotoPlayList} {...value} key={value.id} />
+            ))}
+          </div>
+          <div className={styles.list}>
+            {remd.slice(3, 6).map((value) => (
+              <RemdList gotoPlayList={gotoPlayList} {...value} key={value.id} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <div>loading...</div>
+      )}
       <h2 className={styles.remd}>最新音乐</h2>
       <section>
-        {newSong.map((value) => (
-          <Song data={value} key={value.id} />
-        ))}
+        {newSong.length > 0 ? (
+          newSong.map((value) => <Song data={value} key={value.id} />)
+        ) : (
+          <div>loading...</div>
+        )}
       </section>
       <Footer />
     </div>

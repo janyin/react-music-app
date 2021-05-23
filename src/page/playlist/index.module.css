@@ -81,11 +81,11 @@
 .tag {
   display: inline-block;
   position: relative;
-  margin-right: 10px;
+  margin-left: 10px;
   padding: 1px 8px;
   font-size: 12px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
+  border-radius: 30px;
   font-style: normal;
 }
 .info_intro {

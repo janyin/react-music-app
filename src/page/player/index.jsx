@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { setCurMusic, setPlayerStatus } from '@/store/action';
 import { Toast } from 'antd-mobile';
+import React, { useEffect } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { connect } from 'react-redux';
 import Comment from './comment';
 import './index.css';
@@ -49,6 +49,7 @@ function Player(props) {
     setPlayerStatus(!playerStatus);
   }
 
+  // eslint-disable-next-line
   useEffect(() => {
     async function getMusicData() {
       Toast.loading('正在加载数据...', 100);
@@ -61,7 +62,8 @@ function Player(props) {
       }
     }
     getMusicData();
-  }, [data.id]);
+    // eslint-disable-next-line
+  }, [data]);
 
   return (
     <div>
@@ -95,8 +97,9 @@ function Player(props) {
         </div>
         <div className="comment_wrap">
           <p>热门评论</p>
-          {comment &&
-            comment.map((val) => <Comment key={val.content} data={val} />)}
+          {comment?.map((val) => (
+            <Comment key={val.content} data={val} />
+          ))}
         </div>
       </div>
     </div>
